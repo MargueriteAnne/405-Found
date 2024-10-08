@@ -1,0 +1,73 @@
+﻿<Window x:Class="_405_Found.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_405_Found"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="LightBlue">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Width="450" HorizontalAlignment="Center" VerticalAlignment="center" Source="/logo2.jpeg"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Grid.Column="1">
+            <TextBlock Text="Sign In" FontSize="36" Width="237" FontFamily="Elephant" Focusable="True"/>
+
+            <Separator Height="20"></Separator>
+            <!-- insert the username-->
+            <TextBlock Text="UserName" FontSize="18" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="True" />
+            <StackPanel Orientation="Horizontal">
+                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="GhostWhite">
+                    <TextBox  x:Name="username" Width="250" Height="50" Background="GhostWhite" RenderTransformOrigin="0.513,0.526" Margin="25,0,25,0" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
+                </Border>
+            </StackPanel>
+            <Separator Height="15"></Separator>
+            <!-- insert the password-->
+            <TextBlock Text="Password" FontSize="18" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="True" />
+
+            <StackPanel Orientation="Horizontal">
+                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="GhostWhite">
+                    <PasswordBox  x:Name="password" Width="250" Height="50" Background="GhostWhite" RenderTransformOrigin="0.513,0.526" Margin="25,0,25,0" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
+                </Border>
+            </StackPanel>
+
+            <Separator Height="15"></Separator>
+            <!--Login button-->
+            <Button Content="Log in" Click="Log_in_Click" FontSize="20" FontFamily="Arial Black" x:Name="Log_in" Width="250" Height="50" Background="DarkGray" Foreground="Black" 
+            BorderThickness="0" ClickMode="Press" Cursor="Hand" Focusable="False" InputScope="Default" IsHitTestVisible="True" IsManipulationEnabled="True">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" CornerRadius="15" 
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <!--changes the button color when pressed-->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+
+                
+
+            </Button>
+
+            <Separator Height="15"></Separator>
+            <!-- Sign up link -->
+            <TextBlock>
+                 <Run Text="Don't have an account? " />
+                 <Hyperlink Click="Signup_Click">
+                    <TextBlock Text="Sign Up" TextDecorations="Underline" />                 
+                 </Hyperlink>
+            </TextBlock>
+
+
+        </StackPanel>
+    </Grid>
+</Window>

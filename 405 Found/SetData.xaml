@@ -1,0 +1,36 @@
+﻿<Window x:Class="_405_Found.SetData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_405_Found"
+        mc:Ignorable="d"
+        Title="SetData" Height="450" Width="800" Background="LightBlue">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Width="450" HorizontalAlignment="Center" VerticalAlignment="center" Source="/logo2.jpeg"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Grid.Column="1">
+            <TextBlock Text="Sign In" FontSize="36" Width="237" FontFamily="Elephant" Focusable="True"/>
+
+            <Separator Height="20"></Separator>
+            <TextBlock Text="UserName" FontSize="18" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="True" />
+            <StackPanel Orientation="Horizontal">
+                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="DarkGray">
+                    <TextBox  x:Name="username" Width="250" Height="50" Background="DarkGray" RenderTransformOrigin="0.513,0.526" Margin="25,0,25,0"/>
+                </Border>
+            </StackPanel>
+            <Separator Height="15"></Separator>
+            <TextBlock Text="Password" FontSize="18" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="True" />
+
+            <StackPanel Orientation="Horizontal">
+                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="DarkGray">
+                    <TextBox  x:Name="password" Text="" Width="250" Height="50" Background="DarkGray" RenderTransformOrigin="0.513,0.526" Margin="25,0,25,0"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

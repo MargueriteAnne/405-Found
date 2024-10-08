@@ -1,0 +1,86 @@
+﻿<Window x:Class="_405_Found.Tables.BookTable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BookTable" Height="450" Width="782" Background="LightBlue">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Book List" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Book Name" Grid.Column="0" Margin="5" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBlock Text="Genre" Grid.Column="1" Margin="5" VerticalAlignment="Center"/>
+            <TextBlock Text="User ID" Grid.Column="2" Margin="5" VerticalAlignment="Center"/>
+            <TextBlock Text="Status" Grid.Column="3" Margin="5" VerticalAlignment="Center"/>
+
+        </Grid>
+
+
+        <!-- Book List -->
+        <ListBox x:Name="BooksListBox" Grid.Row="2" Margin="5,10,0,53" BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="270"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+
+
+
+                        <TextBlock Text="{Binding BookName}" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Genre}" Grid.Column="1" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding User_Id}" Grid.Column="2" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Status}" Grid.Column="3" Margin="5" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <DockPanel DockPanel.Dock="Bottom" Background="LightBlue" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,3" Grid.Row="2">
+            <Button Content="Delete" Click="Delete_Click" Width="70" Height="30" Margin="2" Background="OrangeRed"/>
+            <Button Content="Exit" Click="Exit_Click" Width="70" Height="30" Margin="2"/>
+        </DockPanel>
+        <!-- Add Book Section -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+            <TextBlock Text="Book Name:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="bookNameTextBox" Width="200" Margin="5"/>
+            <TextBlock Text="Genre:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="genreComboBox" Width="150" Margin="5">
+                <ComboBoxItem Content="Fiction"/>
+                <ComboBoxItem Content="Non-Fiction"/>
+                <ComboBoxItem Content="Science Fiction"/>
+                <ComboBoxItem Content="Fantasy"/>
+                <ComboBoxItem Content="Mystery"/>
+                <ComboBoxItem Content="Biography"/>
+                <ComboBoxItem Content="Romance"/>
+                <ComboBoxItem Content="Horror"/>
+            </ComboBox>
+            <TextBlock Text="Status:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="statusComboBox" Width="150" Margin="5">
+                <ComboBoxItem Content="Read"/>
+                <ComboBoxItem Content="Reading"/>
+                <ComboBoxItem Content="Want to read"/>
+            </ComboBox>
+            <Button Content="Add Book" Click="AddBook_Click" Margin="5"/>
+        </StackPanel>
+        <!-- Bottom bar -->
+
+    </Grid>
+</Window>

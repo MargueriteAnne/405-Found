@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="_405Found" namespace="_405Found" p1:name="cs_405Found" p1:Guid="03f2790c-b9c1-4653-889f-c4f73df9a544" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="User" entity-set="Users" p1:Guid="25bb90f9-77a2-457c-aaa3-0e202848aaa7">
+    <id name="User_Id" type="Int" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="7fbff051-5538-42b6-934f-130a99e37215">
+      <column name="Id" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="2cf95e4b-fd1b-4e27-8124-c9edd6a42756">
+      <column name="Name" />
+    </property>
+    <property name="SavedPassword" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="45d56d07-3142-4fb5-832d-c57de5f3e391">
+      <column name="" />
+    </property>
+    <property name="Email" type="String" p1:ValidateRequired="true" p1:Guid="926866b0-625d-446c-b47f-50a24f6b2ef3">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Books" entity-set="Books" p1:Guid="5f4372f8-8870-47f9-8d6e-b48ce44a1941">
+    <id name="BookName" type="String" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="ae290473-6ca6-4fd4-8156-9a3e09a5f147">
+      <column name="" />
+    </id>
+    <property name="Genre" type="String" p1:ValidateRequired="true" p1:Guid="14eea27f-fd52-4123-a9f5-3ba49052d606">
+      <column name="" />
+    </property>
+    <property name="User_Id" type="Int" shadow="True" p1:ValidateRequired="true" p1:Guid="495a22fb-6e9a-48a5-86bb-691ac93bf86d">
+      <column name="" not-null="False" />
+    </property>
+    <property name="Status" type="String" p1:ValidateRequired="true" p1:Guid="b90f9506-7129-43cf-a018-94e7b3e74173">
+      <column name="" />
+    </property>
+  </class>
+  <associations>
+    <association name="User_File" cardinality="OneToMany" p1:Guid="9bf8359e-d98e-4e74-b9c2-e949ddb53b78">
+      <end1 multiplicity="One" name="User" class="Books" relation-class="User" constrained="True" lazy="False" p1:Guid="7d4ed58a-3d84-4384-9692-269f3117b973">
+        <property name="User_Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Books" class="User" relation-class="Books" lazy="False" p1:Guid="e78ec73e-3092-47d6-a37f-ea1a9f521ca2">
+        <property name="User_Id" />
+      </end2>
+    </association>
+  </associations>
+</efcore>
